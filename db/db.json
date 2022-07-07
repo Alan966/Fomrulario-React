@@ -1,0 +1,31 @@
+{
+  "leads": [
+    {
+      "fullname": "Alan Jair Guadalupe",
+      "mail": "alanuadalupe1665@gmail.com",
+      "age": "23",
+      "obs": "Mis gustos son los autos y  las trocas de a deveras",
+      "country": "Mis gustos son los autos y  las trocas de a deveras",
+      "active": true,
+      "id": 1
+    },
+    {
+      "fullname": "Salvador",
+      "mail": "alanuadalupe1665@gmail.com",
+      "age": "21",
+      "obs": "Estas bien mamado prro",
+      "country": "Estas bien mamado prro",
+      "active": true,
+      "id": 2
+    },
+    {
+      "fullname": "Faruz Feet",
+      "mail": "faruz@gmail.com",
+      "age": "23",
+      "obs": "Este wey es un cantante de rap canta muy chido",
+      "country": "Este wey es un cantante de rap canta muy chido",
+      "active": true,
+      "id": 3
+    }
+  ]
+}
