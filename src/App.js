@@ -1,63 +1,54 @@
+import { useForm } from "react-hook-form"
 import "./App.sass"
-import { useRef } from 'react';
-import Field from "./components/Field";
-
 const App = () => {
 
-// const [data, setData] = useState({ email: "", password: ""})
-const data = ({ email: "", password: ""})
+    const {register, handleSubmit, formState:{errors}} = useForm()
+    
+    const submit = data =>{
+        console.log(data)
+    }
 
-const loginForm = useRef()
-
-// const changeData = e => {
-//     setData({
-//         ...data, 
-//         [e.target.name]: e.target.value
-//     })
-// } 
-const submit = e => {
-    e.preventDefault()
-    // console.log(data)
-    console.log(loginForm.current)
-}
-
-    return (
-        <div className="ed-grid">
-            <form className="ed-container l-30" onSubmit={submit} ref={loginForm}>
-                <Field 
-                label={'Correo Electronico'}  
-                type={'email'} 
-                value={data.email}
-                />
-                <Field 
-                label={'Contraseña'}  
-                type={'password'} 
-                value={data.password}
-                />
-                {/*<div className="ed-item form__item">
+    return(
+        <div className="ed-grid"  onSubmit={handleSubmit(submit)}>
+            <form className="ed-container l-30" >
+              <div className="ed-item form__item">
                      <label htmlFor="email">
                         Correo Electronico 
-                        <input 
+                        <input  
+                        {...register("email", {required: "El correo es Obligatorio"})}
                         type="email" 
                         name="email" 
                         id="email" 
-                        defaultValue={data.email} 
-                        // onChange={changeData}/>
+                        defaultValue=""
                         />
-                    </label>
-                </div> */}
-                {/* <div className="ed-item form__item">
+                    </label> 
+                    { errors?.email && 
+                    <span color="red">{ errors?.email?.message }</span>
+                    }
+                </div>
+                <div className="ed-item form__item">
                     <label htmlFor="password">
                         Contraseña 
-                        <input 
+                        <input  
+                        {...register("password", {
+                            required: "La contraseña es Obligatoria", 
+                            minLenght: 4, 
+                            maxLength: 10
+                            // validate: dato => 
+                        })}
                         type="password" 
                         name="password" 
                         id="password"  
-                        defaultValue={data.password}
-                        // onChange={changeData}/>
+                        defaultValue=""
                         />
-                    </label>
-                </div> */}
+                    </label> 
+                    { errors?.password && 
+                    <span color="red">{ errors?.password?.message }</span>
+                    }
+                </div> 
+                <div  className="ed-item form__item" >
+                    <input type="submit" value="login" className="button full"/>
+                </div>
             </form>
         </div>
     )

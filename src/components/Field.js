@@ -1,13 +1,15 @@
-const Field = ({label,  type, value}) => {
+const Field = ({label,  type, value, name, checked }) => {
     return(
         <div className="ed-item form__item">
         <label htmlFor={type}>
             { label }
             <input 
             type={type} 
-            name={type} 
-            id={type} 
-            defaultValue={value}/>
+            name={name} 
+            id={name} 
+            defaultValue={value}
+            defaultChecked={ checked }
+            /> 
         </label>
     </div>
     )
